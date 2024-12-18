@@ -354,7 +354,7 @@ const Navbar = () => {
     setSearchQuery(e.target.value);
     if (e.target.value.length >= 1) {
       try {
-        const res = await axios.get(`http://localhost:8000/api/v1/user/search?query=${e.target.value}`);
+        const res = await axios.get(`https://socially-e6we.onrender.com/api/v1/user/search?query=${e.target.value}`);
         setSearchResults(res.data.users);
       } catch (error) {
         toast.error("Error fetching search results.");

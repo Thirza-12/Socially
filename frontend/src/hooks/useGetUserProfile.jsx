@@ -10,7 +10,7 @@ const useGetUserProfile = (userId) => {
       console.log("Fetching posts...");
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/v1/user/${userId}/profile`,
+          `https://socially-e6we.onrender.com/api/v1/user/${userId}/profile`,
           { withCredentials: true }
         );
         if (res.data.success) {
