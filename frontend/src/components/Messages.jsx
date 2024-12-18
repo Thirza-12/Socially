@@ -4,8 +4,8 @@ import { Button } from './ui/button'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import useGetAllMessage from '@/hooks/useGetAllMessage'
-import useGetRTM from '@/hooks/useGetRtm'
 import profile from '../assets/profile.png'
+import useGetRTM from '@/hooks/useGetRTM'
 const Messages = ({ selectedUser }) => {
     useGetRTM();
     useGetAllMessage();
