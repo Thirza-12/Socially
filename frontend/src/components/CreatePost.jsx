@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose, // Only use DialogClose for closing
-} from "@/components/ui/Dialog";
+} from "@/components/ui/dialog.jsx";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
