@@ -60,7 +60,7 @@ app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 
 const corsOptions = {
-    origin: "http://localhost:5173",  // Replace with your frontend URL
+    origin: ["http://localhost:5173", 'https://socially-e6we.onrender.com'],  // Replace with your frontend URL
     credentials: true
 };
 app.use(cors(corsOptions));
