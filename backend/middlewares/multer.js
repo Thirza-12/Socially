@@ -4,7 +4,7 @@ import path from 'path';
 // Storage for profile pictures
 const profileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '/uploads/profile_pictures/');
+        cb(null, '/backend/uploads/profile_pictures/');
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));
@@ -14,7 +14,7 @@ const profileStorage = multer.diskStorage({
 // Storage for post images
 const postStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '/uploads/posts/');
+        cb(null, '/backend/uploads/posts/');
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));
