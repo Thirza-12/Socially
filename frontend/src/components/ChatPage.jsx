@@ -22,7 +22,7 @@ const ChatPage = () => {
   // Function to send a message
   const sendMessageHandler = async (receiverId) => {
     try {
-      const res = await axios.post(`https://socially-e6we.onrender.com/api/v1/message/send/${receiverId}`, { textMessage }, {
+      const res = await axios.post(`https://socially-yvkc.onrender.com/api/v1/message/send/${receiverId}`, { textMessage }, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true
       });

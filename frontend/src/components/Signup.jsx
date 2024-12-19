@@ -137,7 +137,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://socially-e6we.onrender.com/api/v1/user/register",
+        "https://socially-yvkc.onrender.com/api/v1/user/register",
         input,
         {
           headers: {

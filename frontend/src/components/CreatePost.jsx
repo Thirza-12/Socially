@@ -179,7 +179,7 @@ const CreatePost = ({ open, setOpen }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://socially-e6we.onrender.com/api/v1/post/addpost",
+        "https://socially-yvkc.onrender.com/api/v1/post/addpost",
         formData,
         {
           headers: {

@@ -34,7 +34,7 @@ const Post = ({ post }) => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.get(
-        `https://socially-e6we.onrender.com/api/v1/post/${post._id}/${action}`,
+        `https://socially-yvkc.onrender.com/api/v1/post/${post._id}/${action}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -63,7 +63,7 @@ const Post = ({ post }) => {
   const deletePostHandler = async () => {
     try {
       const res = await axios.delete(
-        `https://socially-e6we.onrender.com/api/v1/post/delete/${post?._id}`,
+        `https://socially-yvkc.onrender.com/api/v1/post/delete/${post?._id}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -82,7 +82,7 @@ const Post = ({ post }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `https://socially-e6we.onrender.com/api/v1/post/${post?._id}/comment`,
+        `https://socially-yvkc.onrender.com/api/v1/post/${post?._id}/comment`,
         { text },
         {
           headers: {
@@ -120,7 +120,7 @@ const Post = ({ post }) => {
     try {
       dispatch(toggleBookmark(post._id));
       const res = await axios.get(
-        `https://socially-e6we.onrender.com/api/v1/post/${post._id}/bookmark`,
+        `https://socially-yvkc.onrender.com/api/v1/post/${post._id}/bookmark`,
         { withCredentials: true }
       );
 
@@ -139,7 +139,7 @@ const Post = ({ post }) => {
 
   const shareHandler = () => {
     // Get the profile URL
-    const profileUrl = `https://socially-e6we.onrender.com/profile/${post.author?._id}`;
+    const profileUrl = `https://socially-yvkc.onrender.com/profile/${post.author?._id}`;
 
     // Check if the Web Share API is supported (for mobile devices)
     if (navigator.share) {

@@ -15,7 +15,7 @@ const PostDetailPage = () => {
     
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`https://socially-e6we.onrender.com/api/v1/post/${id}`);
+        const res = await axios.get(`https://socially-yvkc.onrender.com/api/v1/post/${id}`);
         console.log(res);
         
         if (res.data.success) {

@@ -52,7 +52,7 @@ const Profile = () => {
   const handleFollowUnfollow = async () => {
     try {
         const response = await axios.post(
-            `https://socially-e6we.onrender.com/api/v1/user/followOrUnfollow/${userProfile._id}`,
+            `https://socially-yvkc.onrender.com/api/v1/user/followOrUnfollow/${userProfile._id}`,
             {},
             {
                 headers: {
@@ -86,7 +86,7 @@ const Profile = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("https://socially-e6we.onrender.com/api/v1/user/logout", {
+      const res = await axios.get("https://socially-yvkc.onrender.com/api/v1/user/logout", {
         withCredentials: true,
       });
       if (res.data.success) {

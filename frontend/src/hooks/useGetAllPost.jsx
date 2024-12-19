@@ -11,7 +11,7 @@ const useGetAllPost = () => {
       console.log("Fetching posts...");
       try {
         const res = await axios.get(
-          "https://socially-e6we.onrender.com/api/v1/post/all",
+          "https://socially-yvkc.onrender.com/api/v1/post/all",
           { withCredentials: true }
         );
         if (res.data.success) {
