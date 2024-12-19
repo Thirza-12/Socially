@@ -21,8 +21,8 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 // Static file serving for 'uploads' folder
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/uploads', express.static('/uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static('/uploads'));
 
 
 // Multer setup for file uploads
