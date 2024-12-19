@@ -12,6 +12,7 @@ import multer from "multer";  // Import multer
 import fs from "fs";
 import { Post } from "./models/post.model.js";
 import { app, server } from "./socket/socket.js";
+import mongoose from "mongoose";
 const __filename = fileURLToPath(import.meta.url); // Get the file path
 const __dirname = path.dirname(__filename); // Get the directory path
 console.log(__dirname);
@@ -20,7 +21,9 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 // Static file serving for 'uploads' folder
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('D:/Socially/uploads'));
+
 
 // Multer setup for file uploads
 const photosMiddleware = multer({ dest: 'uploads/' });
@@ -60,7 +63,7 @@ app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 
 const corsOptions = {
-    origin: process.env.URL,  // Replace with your frontend URL
+    origin: [process.env.URL, 'http://localhost:8000'],  // Replace with your frontend URL
     credentials: true
 };
 app.use(cors(corsOptions));

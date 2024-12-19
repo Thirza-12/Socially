@@ -162,20 +162,21 @@ export const editProfile = async (req, res) => {
         .status(404)
         .json({ message: "User Not Found", success: false });
     }
-
-    // Update bio and gender if provided
-    if (bio) user.bio = bio;
-    if (gender) user.gender = gender;
-    if (name) user.name = name;
-    if (dob) user.dob = dob;
+    // let cloudResponse;
     // Update profilePicture if uploaded
     if (profilePicture) {
       const relativePath = `/uploads/profile_pictures/${profilePicture.filename}`;
       console.log(relativePath);
       user.profilePicture = `http://localhost:8000${relativePath}`; // Full URL
       console.log(user.profilePicture);
+      // const fileuri=getDataUri(profilePicture);
+      // cloudResponse=await cloudinary.uploader.upload(fileuri);
     }
-
+    if (bio) user.bio = bio;
+    if (gender) user.gender = gender;
+    if (name) user.name = name;
+    if (dob) user.dob = dob;
+    // if(profilePicture) user.profilePicture=cloudResponse.secure_url;
     // Save user
     await user.save();
     return res
