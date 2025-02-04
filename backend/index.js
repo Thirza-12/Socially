@@ -16,10 +16,12 @@ import mongoose from "mongoose";
 const __filename = fileURLToPath(import.meta.url); // Get the file path
 const __dirname = path.dirname(__filename); // Get the directory path
 console.log(__dirname);
-// Get the parent directory
-const rootDir = path.join(__dirname, '..');
+// // Get the parent directory
+// const rootDir = path.join(__dirname, '..');
 
-app.use('/uploads', express.static(path.join(rootDir, 'uploads')));
+// app.use('/uploads', express.static(path.join(rootDir, 'uploads')));
+app.use('/uploads', express.static('uploads'));
+
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
@@ -101,6 +103,7 @@ app.get('/api/v1/post/:id', async (req, res) => {
   
 
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.use('/uploads', express.static('uploads'));
   app.get("*",(req,res)=>{
     res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
   })

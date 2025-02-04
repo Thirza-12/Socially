@@ -10,7 +10,7 @@ const Home = () => {
   useGetSuggestedusers();
   return (
     <div className="flex justify-between">
-      <div className="ml-auto mr-0 sm:mr-36">
+      <div className="mx-auto">
         <Feed/>
         <Outlet />
       </div>

@@ -170,8 +170,8 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="my-0 sm:my-5 mx-auto flex flex-col p-2 bg-transparent w-auto sm:max-w-screen-sm ">
-      <div className="flex items-center gap-3">
+    <div className="my-0 sm:my-5 mx-auto flex flex-col p-2 bg-transparent sm:max-w-screen-sm ">
+      <div className="w-full mx-auto ml-0 flex items-center gap-3">
         <Avatar>
           <AvatarImage
             src={post.author?.profilePicture}
@@ -250,7 +250,7 @@ const Post = ({ post }) => {
       )}
 
       {post?.caption && !post?.image && (
-        <p className="mt-2 text-sm text-gray-700 sm:text-base">
+        <p className="w-full mt-2 text-sm text-gray-700 sm:text-base ">
           <span className="dark:text-slate-200">{post?.caption}</span>
         </p>
       )}
