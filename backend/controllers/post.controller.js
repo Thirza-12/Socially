@@ -19,7 +19,7 @@ export const addNewPost = async (req, res) => {
         if (image) {
             const imagePathForDb = path.posix.join('uploads', 'posts', image.filename);
             console.log(imagePathForDb);
-            const baseUrl = `http://localhost:8000/`; // Adjust this if your backend runs elsewhere
+            const baseUrl = 'https://socially-yvkc.onrender.com'; // Adjust this if your backend runs elsewhere
             fullImageUrl = baseUrl + imagePathForDb;
         }
 
