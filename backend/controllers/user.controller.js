@@ -3,6 +3,8 @@ import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Post } from "../models/post.model.js";
+import cloudinary from "../utils/cloudinary.js";
+import getDataUri from "../utils/datauri.js";
 
 export const register = async (req, res) => {
   try {
@@ -152,9 +154,20 @@ export const editProfile = async (req, res) => {
   try {
     const userId = req.id;
     const { name, bio, gender, dob } = req.body;
+    let cloudResponse;
     const profilePicture = req.file; // File uploaded using Multer
     console.log("Uploaded file", profilePicture);
 
+    // let cloudResponse;
+    // Update profilePicture if uploaded
+    if (profilePicture) {
+      // const relativePath = `/uploads/profile_pictures/${profilePicture.filename}`;
+      // console.log(relativePath);
+      // user.profilePicture = `http://localhost:8000${relativePath}`; // Full URL
+      // console.log(user.profilePicture);
+      const fileuri=getDataUri(profilePicture);
+      cloudResponse=await cloudinary.uploader.upload(fileuri);
+    }
     // Find the user
     const user = await User.findById(userId);
     if (!user) {
@@ -162,21 +175,11 @@ export const editProfile = async (req, res) => {
         .status(404)
         .json({ message: "User Not Found", success: false });
     }
-    // let cloudResponse;
-    // Update profilePicture if uploaded
-    if (profilePicture) {
-      const relativePath = `/uploads/profile_pictures/${profilePicture.filename}`;
-      console.log(relativePath);
-      user.profilePicture = `http://localhost:8000${relativePath}`; // Full URL
-      console.log(user.profilePicture);
-      // const fileuri=getDataUri(profilePicture);
-      // cloudResponse=await cloudinary.uploader.upload(fileuri);
-    }
     if (bio) user.bio = bio;
     if (gender) user.gender = gender;
     if (name) user.name = name;
     if (dob) user.dob = dob;
-    // if(profilePicture) user.profilePicture=cloudResponse.secure_url;
+    if(profilePicture) user.profilePicture=cloudResponse.secure_url;
     // Save user
     await user.save();
     return res

@@ -1,11 +1,12 @@
 import express from 'express';
 import isAuthenticated from '../middlewares/isAuthenticated.js';
-import { uploadPost} from '../middlewares/multer.js';
+// import { uploadPost} from '../middlewares/multer.js';
 import {addComment, addNewPost, bookmarkPost, deletePost, dislikePost, getAllPost, getCommentsOfPost, getUserPost, likePost} from "../controllers/post.controller.js"
+import upload from '../middlewares/multer.js';
 const router = express.Router();
 
 // post Routes
-router.route('/addpost').post(isAuthenticated, uploadPost.single('image'), addNewPost);
+router.route('/addpost').post(isAuthenticated, upload.single('image'), addNewPost);
 router.route('/all').get(isAuthenticated, getAllPost);
 router.route('/userpost/all').get(isAuthenticated, getUserPost);
 router.route('/:id/like').get(isAuthenticated, likePost);
