@@ -32,7 +32,7 @@ const CommentDialog = ({ open, setOpen }) => {
   const sendMessageHandler = async () => {
     try {
       const res = await axios.post(
-        `https://socially-yvkc.onrender.comapi/v1/post/${selectedPost?._id}/comment`,
+        `https://socially-ee6z.onrender.com/api/v1/post/${selectedPost?._id}/comment`,
         { text },
         {
           headers: {

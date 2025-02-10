@@ -64,7 +64,7 @@ const SuggestedUsers = () => {
 
     try {
       const response = await axios.post(
-        `https://socially-yvkc.onrender.com/api/v1/user/followOrUnfollow/${userId}`,
+        `https://socially-ee6z.onrender.com/api/v1/user/followOrUnfollow/${userId}`,
         {},
         {
           headers: {
